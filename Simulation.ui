@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimulationClass</class>
+ <widget class="QMainWindow" name="SimulationClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Simulation</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGraphicsView" name="graphicsView"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionfog"/>
+   <addaction name="actionsnow"/>
+   <addaction name="actionrain"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionfog">
+   <property name="text">
+    <string>fog</string>
+   </property>
+  </action>
+  <action name="actionsnow">
+   <property name="text">
+    <string>snow</string>
+   </property>
+  </action>
+  <action name="actionrain">
+   <property name="text">
+    <string>rain</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="Simulation.qrc"/>
+ </resources>
+ <connections/>
+</ui>
