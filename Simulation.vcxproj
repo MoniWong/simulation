@@ -117,7 +117,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MyPicList.cpp" />
+    <ClCompile Include="MyProcessList.cpp" />
     <ClCompile Include="MySubWindow.cpp" />
     <ClCompile Include="Simulation2.cpp" />
   </ItemGroup>
@@ -125,6 +125,7 @@
     <QtUic Include="AddFog.ui" />
     <QtUic Include="AddRain.ui" />
     <QtUic Include="AddSnow.ui" />
+    <QtUic Include="ProcessList.ui" />
     <QtUic Include="PicList.ui" />
     <QtUic Include="Simulation2.ui" />
     <QtUic Include="SubWindow.ui" />
@@ -133,7 +134,7 @@
     <QtRcc Include="Simulation.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MyPicList.h">
+    <QtMoc Include="MyProcessList.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
     </QtMoc>
@@ -149,9 +150,6 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
     </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MyType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -33,24 +33,24 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyPicList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MySubWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Simulation2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyProcessList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MyPicList.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="MySubWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Simulation2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyProcessList.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -73,15 +73,13 @@
     <QtUic Include="AddRain.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="ProcessList.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Simulation.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MyType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

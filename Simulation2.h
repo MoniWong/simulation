@@ -7,8 +7,7 @@
 #include <QtWidgets>
 #include <QtDebug>
 
-#include "MyType.h"
-#include "MyPicList.h"
+#include "MyProcessList.h"
 #include "MySubWindow.h"
 #include "ui_Simulation2.h"
 #include "ui_SubWindow.h"
@@ -34,19 +33,18 @@ private:
 
 	QPointer<QObjectCleanupHandler> subWindowsAllCleaner;
 	QPointer<QObjectCleanupHandler> subWindowsSavedCleaner;
-	QPointer<MyPicList> picList;
-	
-
-signals:
-
+	QPointer<MyProcessList> processList;
 
 public slots:
-	void update_subWin(QString title, cv::Mat& image);
+	void update_subWin(cv::Mat& image);
 	void Creat_newSubWin(QString title, cv::Mat& image);
 	void a_SavePic_triggered();
-	void PicList_toggled(bool);
+	void ProcessList_toggled(bool);
 	void setPicFalse();
 	void close_Pic(QString);
+
+private slots:
+	void openPic();
 
 };
 

@@ -50,12 +50,27 @@ void MySubWindow::setImg(cv::Mat & image)
 	originalScene->clear();
 	originalScene->addPixmap(*pix);
 	delete pix;
+	isSaved = false;
 	this->setWindowTitle(title + "*");
 }
 
 void MySubWindow::closeEvent(QCloseEvent * event)
 {
-	event->accept();
+	QString file = QFileDialog::getSaveFileName(this, QStringLiteral("±£´æ½á¹û"),
+		"", QStringLiteral("PNGÍ¼Ïñ (*.png);;JPGÍ¼Ïñ (*.jpg);;BMPÍ¼Ïñ (*.bmp)"));
+	if (file.isEmpty())
+		return;
+	else
+	{
+		if (cv::imwrite(file.toStdString(), img))
+		{
+			QFileInfo fileInfo(file);
+			title = fileInfo.fileName();
+			isSaved = true;
+			this->setWindowTitle(title);
+			event->accept();
+		}
+	}
 }
 
 cv::Mat MySubWindow::getMat()

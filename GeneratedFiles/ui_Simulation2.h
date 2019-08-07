@@ -26,6 +26,7 @@ class Ui_SimulationClass
 {
 public:
     QAction *open_Pic;
+    QAction *open_List;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
@@ -36,13 +37,16 @@ public:
     {
         if (SimulationClass->objectName().isEmpty())
             SimulationClass->setObjectName(QString::fromUtf8("SimulationClass"));
+        SimulationClass->resize(640, 480);
         SimulationClass->setMinimumSize(QSize(640, 480));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/FOD/Resources/logo.png"), QSize(), QIcon::Normal, QIcon::Off);
         SimulationClass->setWindowIcon(icon);
         open_Pic = new QAction(SimulationClass);
         open_Pic->setObjectName(QString::fromUtf8("open_Pic"));
-        open_Pic->setCheckable(true);
+        open_List = new QAction(SimulationClass);
+        open_List->setObjectName(QString::fromUtf8("open_List"));
+        open_List->setCheckable(true);
         centralWidget = new QWidget(SimulationClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -71,6 +75,7 @@ public:
         SimulationClass->addToolBar(Qt::TopToolBarArea, picToolBar);
 
         picToolBar->addAction(open_Pic);
+        picToolBar->addAction(open_List);
 
         retranslateUi(SimulationClass);
 
@@ -80,7 +85,8 @@ public:
     void retranslateUi(QMainWindow *SimulationClass)
     {
         SimulationClass->setWindowTitle(QApplication::translate("SimulationClass", "\344\273\277\347\234\237\347\263\273\347\273\237", nullptr));
-        open_Pic->setText(QApplication::translate("SimulationClass", "\345\233\276\345\203\217\345\210\227\350\241\250", nullptr));
+        open_Pic->setText(QApplication::translate("SimulationClass", "\346\211\223\345\274\200\345\233\276\347\211\207", nullptr));
+        open_List->setText(QApplication::translate("SimulationClass", "\345\244\204\347\220\206\345\210\227\350\241\250", nullptr));
         picToolBar->setWindowTitle(QApplication::translate("SimulationClass", "\344\273\277\347\234\237\347\263\273\347\273\237", nullptr));
     } // retranslateUi
 

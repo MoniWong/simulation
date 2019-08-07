@@ -7,7 +7,6 @@
 #include <QtWidgets>
 
 #include "ui_SubWindow.h"
-#include "MyType.h"
 
 
 class MySubWindow : public QMdiSubWindow

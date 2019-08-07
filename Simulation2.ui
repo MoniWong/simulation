@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>SimulationClass</class>
  <widget class="QMainWindow" name="SimulationClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
   <property name="minimumSize">
    <size>
     <width>640</width>
@@ -74,13 +82,19 @@
     <bool>false</bool>
    </attribute>
    <addaction name="open_Pic"/>
+   <addaction name="open_List"/>
   </widget>
   <action name="open_Pic">
+   <property name="text">
+    <string>打开图片</string>
+   </property>
+  </action>
+  <action name="open_List">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>图像列表</string>
+    <string>处理列表</string>
    </property>
   </action>
  </widget>
