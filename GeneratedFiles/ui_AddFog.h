@@ -61,7 +61,8 @@ public:
         beta->setSizePolicy(sizePolicy1);
         beta->setMinimumSize(QSize(0, 20));
         beta->setMaximumSize(QSize(16777215, 20));
-        beta->setMaximum(100.000000000000000);
+        beta->setMinimum(0.010000000000000);
+        beta->setMaximum(0.990000000000000);
         beta->setSingleStep(0.010000000000000);
         beta->setValue(0.800000000000000);
 

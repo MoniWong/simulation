@@ -38,7 +38,6 @@ private:
 public slots:
 	void update_subWin(cv::Mat& image);
 	void Creat_newSubWin(QString title, cv::Mat& image);
-	void a_SavePic_triggered();
 	void ProcessList_toggled(bool);
 	void setPicFalse();
 	void close_Pic(QString);

@@ -70,12 +70,16 @@ void Simulation2::close_Pic(QString name)
 		if ((subWindow->windowTitle() == name) || (subWindow->windowTitle() == name + "*"))
 		{
 			subWindow->close();
+			processList->ui.PSNR->setText("");
+			processList->ui.SSIM->setText("");
 			return;
 		}
 }
 
 void Simulation2::openPic()
 {
+	QList<QMdiSubWindow *> subWinList = ui.mdiArea->subWindowList();
+	if (subWinList.length() == 1) return;
 	QString file = QFileDialog::getOpenFileName(NULL, QStringLiteral("´ò¿ªÍ¼Ïñ"),
 		"", QStringLiteral("PNGÍ¼Ïñ (*.png *.jpg *.bmp)"));
 	if (file.isEmpty())
@@ -90,15 +94,6 @@ void Simulation2::openPic()
 		QFileInfo fileInfo(file);
 		Creat_newSubWin(fileInfo.fileName(), t);
 		processList->getPic(t);
-	}
-}
-
-void Simulation2::a_SavePic_triggered()
-{
-	MySubWindow* subWindow = (MySubWindow*)ui.mdiArea->currentSubWindow();
-	if (subWindow != nullptr)
-	{
-		subWindow->SaveImg();
 	}
 }
 

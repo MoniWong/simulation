@@ -37,7 +37,7 @@ public:
 	
 	Ui::ProcessListClass ui;
 	// 其他数据获取和修改方法
-	void getPic(cv::Mat&);
+	void getPic(cv::Mat);
 
 
 
@@ -50,6 +50,9 @@ private:
 	cv::Mat img;
 	cv::Mat origin_img;
 
+	double psnr(cv::Mat& I1, cv::Mat& I2);
+	double ssim(cv::Mat& i1, cv::Mat& i2);
+
 private slots:
 	Mat addfog(double, cv::Mat&);
 	Mat addrain(double, std::string, cv::Mat&);
@@ -59,6 +62,7 @@ private slots:
 
 	void doProcess();
 	void originPic();
+
 
 
 signals:

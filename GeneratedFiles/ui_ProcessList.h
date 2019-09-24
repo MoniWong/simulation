@@ -51,6 +51,16 @@ public:
     QLabel *label_2;
     QDoubleSpinBox *snow_para;
     QSpacerItem *horizontalSpacer_2;
+    QGroupBox *gB_evaIndex;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_6;
+    QLineEdit *PSNR;
+    QSpacerItem *horizontalSpacer_4;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_3;
+    QLineEdit *SSIM;
+    QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *pB_do;
@@ -80,6 +90,10 @@ public:
 
         fog_para = new QDoubleSpinBox(gB_addFog);
         fog_para->setObjectName(QString::fromUtf8("fog_para"));
+        fog_para->setMinimum(0.000000000000000);
+        fog_para->setMaximum(1.000000000000000);
+        fog_para->setSingleStep(0.010000000000000);
+        fog_para->setValue(0.000000000000000);
 
         horizontalLayout->addWidget(fog_para);
 
@@ -129,6 +143,8 @@ public:
 
         rain_para = new QDoubleSpinBox(gB_addRain);
         rain_para->setObjectName(QString::fromUtf8("rain_para"));
+        rain_para->setMaximum(1.000000000000000);
+        rain_para->setSingleStep(0.010000000000000);
 
         horizontalLayout_3->addWidget(rain_para);
 
@@ -159,6 +175,8 @@ public:
 
         snow_para = new QDoubleSpinBox(gB_addSnow);
         snow_para->setObjectName(QString::fromUtf8("snow_para"));
+        snow_para->setMaximum(1.000000000000000);
+        snow_para->setSingleStep(0.010000000000000);
 
         horizontalLayout_4->addWidget(snow_para);
 
@@ -168,6 +186,54 @@ public:
 
 
         verticalLayout_2->addWidget(gB_addSnow);
+
+        gB_evaIndex = new QGroupBox(ProcessListClass);
+        gB_evaIndex->setObjectName(QString::fromUtf8("gB_evaIndex"));
+        verticalLayout_3 = new QVBoxLayout(gB_evaIndex);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        label_6 = new QLabel(gB_evaIndex);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        horizontalLayout_9->addWidget(label_6);
+
+        PSNR = new QLineEdit(gB_evaIndex);
+        PSNR->setObjectName(QString::fromUtf8("PSNR"));
+        PSNR->setMinimumSize(QSize(114, 15));
+        PSNR->setReadOnly(true);
+
+        horizontalLayout_9->addWidget(PSNR);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_4);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_9);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_3 = new QLabel(gB_evaIndex);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        horizontalLayout_6->addWidget(label_3);
+
+        SSIM = new QLineEdit(gB_evaIndex);
+        SSIM->setObjectName(QString::fromUtf8("SSIM"));
+        SSIM->setReadOnly(true);
+
+        horizontalLayout_6->addWidget(SSIM);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_5);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_6);
+
+
+        verticalLayout_2->addWidget(gB_evaIndex);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -211,6 +277,9 @@ public:
         cB_addSnow->setText(QApplication::translate("ProcessListClass", "\345\212\240\351\233\252", nullptr));
         gB_addSnow->setTitle(QApplication::translate("ProcessListClass", "\345\212\240\351\233\252", nullptr));
         label_2->setText(QApplication::translate("ProcessListClass", "\347\233\270\345\257\271\351\233\252\351\207\217\347\263\273\346\225\260", nullptr));
+        gB_evaIndex->setTitle(QApplication::translate("ProcessListClass", "\350\257\204\344\273\267\346\214\207\346\240\207", nullptr));
+        label_6->setText(QApplication::translate("ProcessListClass", "\345\263\260\345\200\274\344\277\241\345\231\252\346\257\224(PSNR):", nullptr));
+        label_3->setText(QApplication::translate("ProcessListClass", "\347\273\223\346\236\204\347\233\270\344\274\274\346\200\247(SSIM):", nullptr));
         pB_do->setText(QApplication::translate("ProcessListClass", "\347\241\256\350\256\244\344\277\256\346\224\271", nullptr));
         pB_reset->setText(QApplication::translate("ProcessListClass", "\350\277\230\345\216\237\345\233\276\345\203\217", nullptr));
     } // retranslateUi

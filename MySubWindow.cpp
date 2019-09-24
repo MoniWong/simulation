@@ -79,25 +79,6 @@ cv::Mat MySubWindow::getMat()
 }
 
 
-void MySubWindow::SaveImg()
-{
-	QString file = QFileDialog::getSaveFileName(this, QStringLiteral("±£´æ½á¹û"),
-		"", QStringLiteral("PNGÍ¼Ïñ (*.png);;JPGÍ¼Ïñ (*.jpg);;BMPÍ¼Ïñ (*.bmp)"));
-	if (file.isEmpty())
-		return;
-	else
-	{
-		if (cv::imwrite(file.toStdString(), img))
-		{
-			QFileInfo fileInfo(file);
-			title = fileInfo.fileName();
-			isSaved = true;
-			this->setWindowTitle(title);
-		}
-	}
-}
-
-
 void MySubWindow::showListWidgetMenuSlot(QPoint pos)
 {
 	contextMenu->exec(QCursor::pos());

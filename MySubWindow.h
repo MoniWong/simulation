@@ -17,7 +17,7 @@ public:
 	~MySubWindow();
 	void setImg(cv::Mat& image);
 	cv::Mat getMat();
-	void SaveImg();
+
 
 private:
 	Ui::SubWindowClass ui;

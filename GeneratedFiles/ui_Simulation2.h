@@ -27,6 +27,9 @@ class Ui_SimulationClass
 public:
     QAction *open_Pic;
     QAction *open_List;
+    QAction *modelList;
+    QAction *result;
+    QAction *load_Pic;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QMdiArea *mdiArea;
@@ -47,6 +50,12 @@ public:
         open_List = new QAction(SimulationClass);
         open_List->setObjectName(QString::fromUtf8("open_List"));
         open_List->setCheckable(true);
+        modelList = new QAction(SimulationClass);
+        modelList->setObjectName(QString::fromUtf8("modelList"));
+        result = new QAction(SimulationClass);
+        result->setObjectName(QString::fromUtf8("result"));
+        load_Pic = new QAction(SimulationClass);
+        load_Pic->setObjectName(QString::fromUtf8("load_Pic"));
         centralWidget = new QWidget(SimulationClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -76,6 +85,9 @@ public:
 
         picToolBar->addAction(open_Pic);
         picToolBar->addAction(open_List);
+        picToolBar->addAction(load_Pic);
+        picToolBar->addAction(modelList);
+        picToolBar->addAction(result);
 
         retranslateUi(SimulationClass);
 
@@ -87,6 +99,9 @@ public:
         SimulationClass->setWindowTitle(QApplication::translate("SimulationClass", "\344\273\277\347\234\237\347\263\273\347\273\237", nullptr));
         open_Pic->setText(QApplication::translate("SimulationClass", "\346\211\223\345\274\200\345\233\276\347\211\207", nullptr));
         open_List->setText(QApplication::translate("SimulationClass", "\345\244\204\347\220\206\345\210\227\350\241\250", nullptr));
+        modelList->setText(QApplication::translate("SimulationClass", "\346\250\241\345\236\213\345\210\227\350\241\250", nullptr));
+        result->setText(QApplication::translate("SimulationClass", "\346\243\200\346\265\213\347\273\223\346\236\234", nullptr));
+        load_Pic->setText(QApplication::translate("SimulationClass", "\346\211\271\351\207\217\345\212\240\350\275\275", nullptr));
         picToolBar->setWindowTitle(QApplication::translate("SimulationClass", "\344\273\277\347\234\237\347\263\273\347\273\237", nullptr));
     } // retranslateUi
 

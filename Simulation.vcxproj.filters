@@ -42,6 +42,27 @@
     <ClCompile Include="MyProcessList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DetectorAdd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDehazer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDehazerGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDetectorList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDetectResult.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyFODDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyFODDetectorGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MySubWindow.h">
@@ -53,27 +74,39 @@
     <QtMoc Include="MyProcessList.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="DetectorAdd.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDehazer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDehazerGroup.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDetectorList.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDetectResult.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyFODDetector.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyFODDetectorGroup.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="PicList.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="Simulation2.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="SubWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="AddFog.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="AddSnow.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="AddRain.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="ProcessList.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DetectorAdd.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -81,5 +114,8 @@
     <QtRcc Include="Simulation.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
