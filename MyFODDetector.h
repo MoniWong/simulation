@@ -21,9 +21,13 @@ public:
 	MyFODDetector(DetectorInfo*);
 	~MyFODDetector();
 	QString getName(); //»ñÈ¡Ãû×Ö
+	bool modelEmpty();
 
 public slots:
-	void input_img(QString winName, cv::Mat& img);
+	void input_img(QString winName, cv::Mat& img, bool flag);
+	void load();
+
 signals:
-	void output_result(DetectResult);
+	void output_result(QString, DetectResult, cv::Mat& img, bool flag);
+	void loaded(QString myName, bool isLoaded);
 };

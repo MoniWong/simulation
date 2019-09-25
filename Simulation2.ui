@@ -101,11 +101,17 @@
    </property>
   </action>
   <action name="modelList">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>模型列表</string>
    </property>
   </action>
   <action name="result">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>检测结果</string>
    </property>

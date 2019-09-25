@@ -11,7 +11,6 @@
 	this->name = name;
 	this->modelPath = modelPath;
 	this->device = device;
-	this->model = dehazer::dehazerCreater(modelPath.toStdString(), device.toStdString());
 }
 
  MyDehazer::~MyDehazer()
@@ -24,8 +23,22 @@
 	 return this->name;
  }
 
- void MyDehazer::input_img(QString winName, cv::Mat& img)
+ void MyDehazer::load()
  {
-	 model->run(img);
-	 emit output_img(winName, img);
+	 model = dehazer::dehazerCreater(modelPath.toStdString(), device.toStdString());
+	 if (model == nullptr) {
+		 emit loaded(name, false);
+		 return;
+	 }
+	 
+	 cv::Mat t(cv::Size(1920, 1080), CV_8UC3, cv::Scalar(0, 0, 0));
+	 model->run(t);
+	 emit loaded(name, true);
+ }
+
+ void MyDehazer::input_img(QString winName, cv::Mat& img, bool flag)
+ {
+	 cv::Mat t = img.clone();
+	 model->run(t);
+	 emit output_img(winName, t, flag);
  }

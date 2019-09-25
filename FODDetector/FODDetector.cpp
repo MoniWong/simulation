@@ -16,12 +16,12 @@ FODDetector* FODDetector::FODDetectorCreater(const std::string& modelPath, const
 {
 	FODDetector* t = new FODDetector;
 	t->net = pb::pbLoader::creatPbLoader(modelPath, device);
-	if (t->net == nullptr) {
+	if (t->net == nullptr ||
+		!t->net->addInput({ "image_tensor" }) ||
+		!t->net->addOutput({ "detection_boxes", "detection_scores", "detection_classes", "num_detections" })) {
 		delete t;
 		return nullptr;
 	}
-	t->net->addInput({ "image_tensor" });
-	t->net->addOutput({ "detection_boxes", "detection_scores", "detection_classes", "num_detections" });
 	return t;
 }
 

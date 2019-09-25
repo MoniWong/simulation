@@ -52,8 +52,10 @@ public:
         open_List->setCheckable(true);
         modelList = new QAction(SimulationClass);
         modelList->setObjectName(QString::fromUtf8("modelList"));
+        modelList->setCheckable(true);
         result = new QAction(SimulationClass);
         result->setObjectName(QString::fromUtf8("result"));
+        result->setCheckable(true);
         load_Pic = new QAction(SimulationClass);
         load_Pic->setObjectName(QString::fromUtf8("load_Pic"));
         centralWidget = new QWidget(SimulationClass);

@@ -3,7 +3,7 @@
 #include <QImage>
 #include <QPixmap>
 
-MySubWindow::MySubWindow(QString str, cv::Mat & image)
+MySubWindow::MySubWindow(QString str, cv::Mat & image, bool saved = true)
 {
 	widget = new QWidget(this);
 	ui.setupUi(widget);
@@ -14,6 +14,11 @@ MySubWindow::MySubWindow(QString str, cv::Mat & image)
 	rects = nullptr;
 	ui.graphicsView->setScene(originalScene);
 	setImg(image);
+	isSaved = saved;
+	if (isSaved)
+		this->setWindowTitle(title);
+	else
+		this->setWindowTitle(title + "*");
 
 	scale_rate = 0;
 	contextMenu = new QMenu;
@@ -78,10 +83,67 @@ cv::Mat MySubWindow::getMat()
 	return img.clone();
 }
 
+void MySubWindow::SaveImg()
+{
+	QString file = QFileDialog::getSaveFileName(this, QStringLiteral("保存结果"),
+		"", QStringLiteral("PNG图像 (*.png);;JPG图像 (*.jpg);;BMP图像 (*.bmp)"));
+	if (file.isEmpty())
+		return;
+	else
+	{
+
+		QSize mysize(originalScene->width(), originalScene->height()); //获取 QGraphicsScene.size
+		QImage image(mysize, QImage::Format_ARGB32);
+		QPainter painter(&image);
+		originalScene->render(&painter);   //关键函数
+		image.save(file);
+
+		//if (cv::imwrite(file.toStdString(), img))
+		//{
+		QFileInfo fileInfo(file);
+		title = fileInfo.fileName();
+		isSaved = true;
+		this->setWindowTitle(title);
+		//}
+	}
+}
 
 void MySubWindow::showListWidgetMenuSlot(QPoint pos)
 {
 	contextMenu->exec(QCursor::pos());
+}
+
+
+void MySubWindow::autoSave()
+{
+	QSize mysize(originalScene->width(), originalScene->height()); //获取 QGraphicsScene.size
+	QImage image(mysize, QImage::Format_ARGB32);
+	QPainter painter(&image);
+	originalScene->render(&painter);   //关键函数
+	image.save("C:/Users/ASUS/source/repos/Simulation/afterDetect/" + QDateTime::currentDateTime().toString("yyyyMMddhhmmss") + ".jpg");
+}
+
+void MySubWindow::ShowResultRect(DetectResult result)
+{
+	if (rects != nullptr)
+		originalScene->destroyItemGroup(rects);
+	if (result.num_detections == 0)
+	{
+		rects = nullptr;
+		return;
+	}
+	QList<QGraphicsItem*> items;
+	QPen pen(QColor(255, 0, 0, 127));
+	pen.setWidth(4);
+	for (int i = 0; i < result.num_detections; i++)
+	{
+		QPointF topLeft((result.boxes_data[i][1]) * img.cols, (result.boxes_data[i][0]) * img.rows);
+		QPointF bottomRight((result.boxes_data[i][3]) * img.cols, (result.boxes_data[i][2]) * img.rows);
+		items.append(originalScene->addRect(QRectF(topLeft, bottomRight), pen));
+	}
+	rects = originalScene->createItemGroup(items);
+	isSaved = false;
+	this->setWindowTitle(title + "*");
 }
 
 void MySubWindow::a_zoom_in_triggered()

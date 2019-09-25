@@ -6,7 +6,7 @@ MyDetectResult::MyDetectResult(QWidget* parent) :QDockWidget(parent)
 	QWidget* formWidget = new QWidget(this);
 	ui.setupUi(formWidget);
 	this->setWidget(formWidget);
-	this->setWindowTitle(QStringLiteral("设备列表"));
+	this->setWindowTitle(QStringLiteral("检测结果"));
 
 	ui.tw_Result->setHeaderLabels(QStringList() << QStringLiteral("异物类别") << QStringLiteral("置信度"));;
 	connect(ui.pb_ClearSelect, SIGNAL(clicked()), this, SLOT(pb_ClearSelect_clicked()));

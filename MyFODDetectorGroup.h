@@ -20,15 +20,22 @@ public:
 
 
 public slots:
-	void input_img(QString winName, cv::Mat& img);//输入group的
-	void get_one(DetectResult); //从detector获得
+	void input_img(QString winName, cv::Mat& img, bool flag);//输入group的
+	void get_one(QString, DetectResult, cv::Mat&, bool flag); //从detector获得
 
 private:
 	QList<MyFODDetector*> detectorList;
 	QList<QThread*> threadList;
 	int idx;
+
+private slots:
+	void model_loaded(QString myName, bool isLoaded);
+
 signals:
-	void send_one(QString winName, cv::Mat& img); //把图像发到detector
-	void output_result(DetectResult);//从group传出
-	void output_img(QString winName, cv::Mat& img);
+	void send_one(QString winName, cv::Mat& img, bool flag); //把图像发到detector
+	void output_result(QString, DetectResult, cv::Mat&, bool);//从group传出
+	void output_img(QString winName, cv::Mat& img, bool flag);
+	void loadModel();//加载模型信号
+	void isloaded(QString myName, bool isLoaded);
+	void saveImg();
 };

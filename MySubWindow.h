@@ -5,7 +5,7 @@
 #include <opencv2\imgproc.hpp>
 #include <QtCore>
 #include <QtWidgets>
-
+#include "MyType.h"
 #include "ui_SubWindow.h"
 
 
@@ -13,11 +13,15 @@ class MySubWindow : public QMdiSubWindow
 {
 	Q_OBJECT
 public:
-	MySubWindow(QString str, cv::Mat& image);
+	MySubWindow(QString str, cv::Mat& image, bool saved);
 	~MySubWindow();
 	void setImg(cv::Mat& image);
 	cv::Mat getMat();
+	void SaveImg();
+	void ShowResultRect(DetectResult result);
 
+public slots:
+	void autoSave();
 
 private:
 	Ui::SubWindowClass ui;

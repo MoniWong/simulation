@@ -16,12 +16,10 @@ dehazer* dehazer::dehazerCreater(const std::string& modelPath, const std::string
 {
 	dehazer* t = new dehazer;
 	t->net = pb::pbLoader::creatPbLoader(modelPath, device);
-	if (t->net == nullptr) {
+	if (t->net == nullptr || !t->net->addInput({ "0" }) || !t->net->addOutput({ "Relu_5" })) {
 		delete t;
 		return nullptr;
 	}
-	t->net->addInput({ "0" });
-	t->net->addOutput({ "Relu_5" });
 	return t;
 }
 
@@ -29,7 +27,7 @@ void dehazer::run(cv::Mat& img0)
 {
 	cv::Mat img;
 	cv::resize(img0, img, cv::Size(1920, 1080));
-	cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
+	//cv::cvtColor(img, img, cv::COLOR_BGR2RGB);
 	float* input_data = new float[3 * 1080 * 1920];
 	int idx = 0;
 	for (int c = 0; c < 3; ++c)
@@ -50,7 +48,7 @@ void dehazer::run(cv::Mat& img0)
 				++idx;
 			}
 
-	cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
+	//cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
 	cv::resize(img, img0, img0.size());
 	delete[] input_data;
 	delete[] output_data[0];

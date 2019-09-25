@@ -37,7 +37,7 @@ public:
 	
 	Ui::ProcessListClass ui;
 	// 其他数据获取和修改方法
-	void getPic(cv::Mat);
+	void getPic(QStringList);
 
 
 
@@ -49,9 +49,16 @@ private:
 	Ui::AddSnowClass addsnow_ui;
 	cv::Mat img;
 	cv::Mat origin_img;
-
+	QStringList pathList;
 	double psnr(cv::Mat& I1, cv::Mat& I2);
 	double ssim(cv::Mat& i1, cv::Mat& i2);
+	bool IsSpecialDir(const char *path);
+	bool IsDir(int attrib);
+	void ShowError(const char *file_name);
+	void GetFilePath(const char *path, const char *file_name, char *file_path);
+	void DeleteFile(const char *path);
+	QStringList getDirFilesName(QString);
+
 
 private slots:
 	Mat addfog(double, cv::Mat&);
@@ -67,6 +74,7 @@ private slots:
 
 signals:
 	void closeSignal();
-	void creatWin(cv::Mat&);
+	void creatWin(QString, cv::Mat&, bool);
 	void sendItemName(QString);
+	void afterAddPathList(QStringList);
 };

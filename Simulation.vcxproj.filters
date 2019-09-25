@@ -45,22 +45,28 @@
     <ClCompile Include="DetectorAdd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyDetectorList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="MyDehazer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MyDehazerGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyDetectorList.cpp">
+    <ClCompile Include="MyDerainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyDetectResult.cpp">
+    <ClCompile Include="MyDerainerGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MyFODDetector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MyFODDetectorGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDetectResult.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,22 +83,28 @@
     <QtMoc Include="DetectorAdd.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="MyDetectorList.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="MyDehazer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MyDehazerGroup.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="MyDetectorList.h">
+    <QtMoc Include="MyDerainer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="MyDetectResult.h">
+    <QtMoc Include="MyDerainerGroup.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MyFODDetector.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MyFODDetectorGroup.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDetectResult.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -109,6 +121,12 @@
     <QtUic Include="DetectorAdd.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="DetectorList.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DetectResult.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Simulation.qrc">
@@ -117,5 +135,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MSP_Commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

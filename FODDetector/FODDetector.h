@@ -1,7 +1,7 @@
 #pragma once
 
 #include <opencv2\opencv.hpp>
-#include "../FOD/MyType.h"
+#include "../MyType.h"
 
 #ifdef  FODDETECTOR_EXPORTS
 #include "../pbLoader/pbLoader.h"

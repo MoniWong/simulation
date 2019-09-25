@@ -21,7 +21,10 @@ public:
 	QString getName(); //»ñÈ¡Ãû×Ö
 
 public slots:
-	void input_img(QString winName, cv::Mat& img);
+	void input_img(QString winName, cv::Mat& img, bool flag);
+	void load();
+
 signals:
-	void output_img(QString winName, cv::Mat& img);
+	void output_img(QString winName, cv::Mat& img, bool flag);
+	void loaded(QString myName, bool isLoaded);
 };

@@ -44,7 +44,12 @@ std::vector<std::string> pb::pbLoader::getDeviceList()
 	std::vector<std::string> ans;
 	int count = TF_DeviceListCount(t_deviceList);
 	for (int i = 0;i < count;i++)
-		ans.push_back(std::string(TF_DeviceListName(t_deviceList, i, t_status)));
+	{
+		std::string t(TF_DeviceListName(t_deviceList, i, t_status));
+		if (t[t.size() - 5] == 'G')
+			ans.push_back(t);
+	}
+		
 	TF_DeleteDeviceList(t_deviceList);
 	TF_DeleteSession(t_sess, t_status);
 	TF_DeleteSessionOptions(t_ops);
