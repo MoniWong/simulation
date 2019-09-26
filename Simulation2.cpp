@@ -184,7 +184,7 @@ void Simulation2::loadPic()
 		PicList = getDirFilesName(file);
 		PicList << file;
 		processList->getPic(PicList);
-		
+		processList->setPicNum(PicList.size()-1);
 	}
 }
 

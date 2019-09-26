@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -51,6 +52,10 @@ public:
     QLabel *label_2;
     QDoubleSpinBox *snow_para;
     QSpacerItem *horizontalSpacer_2;
+    QGroupBox *groupBox;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *label_7;
+    QComboBox *Picnum;
     QGroupBox *gB_evaIndex;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_9;
@@ -63,14 +68,14 @@ public:
     QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_5;
+    QSpacerItem *horizontalSpacer_6;
     QPushButton *pB_do;
-    QPushButton *pB_reset;
 
     void setupUi(QWidget *ProcessListClass)
     {
         if (ProcessListClass->objectName().isEmpty())
             ProcessListClass->setObjectName(QString::fromUtf8("ProcessListClass"));
-        ProcessListClass->resize(270, 354);
+        ProcessListClass->resize(270, 377);
         verticalLayout_2 = new QVBoxLayout(ProcessListClass);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         cB_addFog = new QCheckBox(ProcessListClass);
@@ -187,6 +192,28 @@ public:
 
         verticalLayout_2->addWidget(gB_addSnow);
 
+        groupBox = new QGroupBox(ProcessListClass);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        horizontalLayout_10 = new QHBoxLayout(groupBox);
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        label_7 = new QLabel(groupBox);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        horizontalLayout_10->addWidget(label_7);
+
+        Picnum = new QComboBox(groupBox);
+        Picnum->setObjectName(QString::fromUtf8("Picnum"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(Picnum->sizePolicy().hasHeightForWidth());
+        Picnum->setSizePolicy(sizePolicy);
+
+        horizontalLayout_10->addWidget(Picnum);
+
+
+        verticalLayout_2->addWidget(groupBox);
+
         gB_evaIndex = new QGroupBox(ProcessListClass);
         gB_evaIndex->setObjectName(QString::fromUtf8("gB_evaIndex"));
         verticalLayout_3 = new QVBoxLayout(gB_evaIndex);
@@ -241,15 +268,14 @@ public:
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_6);
+
         pB_do = new QPushButton(ProcessListClass);
         pB_do->setObjectName(QString::fromUtf8("pB_do"));
 
         horizontalLayout_5->addWidget(pB_do);
-
-        pB_reset = new QPushButton(ProcessListClass);
-        pB_reset->setObjectName(QString::fromUtf8("pB_reset"));
-
-        horizontalLayout_5->addWidget(pB_reset);
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
@@ -277,11 +303,12 @@ public:
         cB_addSnow->setText(QApplication::translate("ProcessListClass", "\345\212\240\351\233\252", nullptr));
         gB_addSnow->setTitle(QApplication::translate("ProcessListClass", "\345\212\240\351\233\252", nullptr));
         label_2->setText(QApplication::translate("ProcessListClass", "\347\233\270\345\257\271\351\233\252\351\207\217\347\263\273\346\225\260", nullptr));
+        groupBox->setTitle(QApplication::translate("ProcessListClass", "\345\233\276\347\211\207\346\225\260\351\207\217\350\256\276\347\275\256", nullptr));
+        label_7->setText(QApplication::translate("ProcessListClass", "\345\244\204\347\220\206\345\233\276\347\211\207\346\225\260\351\207\217\357\274\232", nullptr));
         gB_evaIndex->setTitle(QApplication::translate("ProcessListClass", "\350\257\204\344\273\267\346\214\207\346\240\207", nullptr));
         label_6->setText(QApplication::translate("ProcessListClass", "\345\263\260\345\200\274\344\277\241\345\231\252\346\257\224(PSNR):", nullptr));
         label_3->setText(QApplication::translate("ProcessListClass", "\347\273\223\346\236\204\347\233\270\344\274\274\346\200\247(SSIM):", nullptr));
         pB_do->setText(QApplication::translate("ProcessListClass", "\347\241\256\350\256\244\344\277\256\346\224\271", nullptr));
-        pB_reset->setText(QApplication::translate("ProcessListClass", "\350\277\230\345\216\237\345\233\276\345\203\217", nullptr));
     } // retranslateUi
 
 };

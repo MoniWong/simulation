@@ -38,6 +38,7 @@ public:
 	Ui::ProcessListClass ui;
 	// 其他数据获取和修改方法
 	void getPic(QStringList);
+	void setPicNum(int);
 
 
 
@@ -68,7 +69,7 @@ private slots:
 	void getPath();
 
 	void doProcess();
-	void originPic();
+	//void originPic();
 
 
 

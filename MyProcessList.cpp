@@ -26,9 +26,8 @@ MyProcessList::MyProcessList(QWidget* parent) :QDockWidget(parent)
 	this->setWindowTitle(QStringLiteral("处理列表"));
 	this->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	this->hide();
-
 	connect(ui.pB_do, SIGNAL(clicked()), this, SLOT(doProcess()));
-	connect(ui.pB_reset, SIGNAL(clicked()), this, SLOT(originPic()));
+	//connect(ui.pB_reset, SIGNAL(clicked()), this, SLOT(originPic()));
 	connect(ui.pushButton, SIGNAL(clicked()), this, SLOT(getPath()));
 }
 
@@ -45,6 +44,18 @@ void MyProcessList::getPic(QStringList Pic)
 		img = t.clone();
 		origin_img = t.clone();
 	}
+}
+
+void MyProcessList::setPicNum(int i)
+{
+	QStringList Numlist;
+	Numlist << QString::number(i);
+	while (i - 100 > 0) {
+		Numlist << QString::number(i - 100);
+		i = i - 100;
+	}
+	ui.Picnum->clear();
+	ui.Picnum->addItems(Numlist);
 }
 
 void MyProcessList::closeEvent(QCloseEvent* event)
@@ -110,7 +121,8 @@ void MyProcessList::doProcess()
 		progress.show();
 		QString path = pathList[pathList.size() - 1]+"/";
 		int iSucceed = 0;
-		for (int i = 0; i < pathList.size()-1; i++) {
+
+		for (int i = 0; i < ui.Picnum->currentText().toInt(); i++) {
 			QString item = path + pathList[i];
 			img = cv::imread(item.toLocal8Bit().toStdString());
 			if (ui.cB_addFog->isChecked()) {
@@ -164,13 +176,13 @@ QStringList  MyProcessList::getDirFilesName(QString pathsDir)
 }
 
 
-void MyProcessList::originPic()
-{
-	ui.PSNR->setText("");
-	ui.SSIM->setText("");
-	img = origin_img.clone();
-	//emit creatWin(img);
-}
+//void MyProcessList::originPic()
+//{
+//	ui.PSNR->setText("");
+//	ui.SSIM->setText("");
+//	img = origin_img.clone();
+//	//emit creatWin(img);
+//}
 
 
 double MyProcessList::psnr(cv::Mat & I1, cv::Mat & I2)
